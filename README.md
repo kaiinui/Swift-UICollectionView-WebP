@@ -9,7 +9,7 @@ Just use provided UIImageView extension `imageView.setImageWithURL(NSURL(string:
 ![](https://raw.githubusercontent.com/kaiinui/Swift-UICollectionView-WebP/master/_webpcollection.gif)
 
 The sample shows number of same WebP image(2642 bytes) with cache-preventing hack.
-To provide same size/same quality JPEG image, its size goes to 12,016 bytes. (approximately 6x)
+To provide same size/same quality JPEG image, its size goes to 12,016 bytes. (approximately 5x)
 
 Please note while you are scrolling down, images will be loaded from network, rather than local disk.
 
