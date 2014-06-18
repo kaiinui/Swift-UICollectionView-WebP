@@ -1,25 +1,28 @@
-//
-//  ViewController.swift
-//  collection
-//
-//  Created by kaiinui on 2014/06/17.
-//  Copyright (c) 2014年 PeitLoan Inc. All rights reserved.
-//
-
 import UIKit
 
-class ViewController: UIViewController {
-                            
+class ViewController: UICollectionViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    let preventcache = Int(arc4random_uniform(10000))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    override func collectionView(collectionView: UICollectionView!, numberOfItemsInSection section: Int) -> Int {
+        return 500
+    }
+    
+    override func collectionView(collectionView: UICollectionView!, cellForItemAtIndexPath indexPath: NSIndexPath!) -> UICollectionViewCell! {
+        let num = preventcache + indexPath.row
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as CollectionViewCell
+        let url = "http://d3lncrho1w0yzl.cloudfront.net/photo1.100x133.2642bytes.webp?\(num)"
+        cell.imageView.setImageWithURL(NSURL(string: url))
+        return cell
+    }
 }
 
